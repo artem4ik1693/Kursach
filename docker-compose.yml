@@ -1,0 +1,60 @@
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: fitness_app
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  server:
+    image: node:16
+    container_name: node_server
+    restart: always
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+      DB_NAME: fitness_app  # Изменили имя базы данных
+    depends_on:
+      - db
+    networks:
+      - app_network
+    command: sh -c "npm install && node server.js"
+
+volumes:
+  db_data:
+
+networks:
+  app_network:
+    driver: bridge

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="main.js" async></script>
+  <link rel="stylesheet" href="index.css" type="text/css">
+  <title>Домашние тренировки</title>
+  <style>
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="images/logo.jpg" alt="Алмазные отжимания" class="product-image">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="index.html">Контакты</a></li>
+      <li><a href="login.html">Логин</a></li>
+      <li><a href="progress.html">Прогресс</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="workout-form">
+  <h2>Добавить тренировку</h2>
+  <label for="workoutName">Название тренировки:</label>
+  <input type="text" id="workoutName" required>
+  <label for="workoutDate">Дата:</label>
+  <input type="date" id="workoutDate" required>
+  <button onclick="addWorkout()">Добавить</button>
+</div>
+
+<div class="container">
+  <h1>Наши тренировки</h1>
+  <div class="product-grid">
+    <div class="product-item">
+      <img src="images/otzhimanya.jpg" alt="Отжимания" class="product-image">
+      <h3>Грудные мышцы</h3>
+      <a href="workout.html#chest" class="a">Подробнее</a> <!-- Ссылка на раздел "Грудные мышцы" -->
+    </div>
+
+    <div class="product-item">
+      <img src="images/plank.png" alt="Product 2" class="product-image">
+      <h3>Мышцы живота</h3>
+      <a href="workout.html#abs" class="a">Подробнее</a> <!-- Ссылка на раздел "Мышцы живота" -->
+    </div>
+
+    <div class="product-item">
+      <img src="images/prisedaniya.png" alt="Product 3" class="product-image">
+      <h3>Ноги</h3>
+      <a href="workout.html#legs" class="a">Подробнее</a> <!-- Ссылка на раздел "Ноги" -->
+    </div>
+
+    <div class="product-item">
+      <img src="images/triceps.png" alt="Product 4" class="product-image">
+      <h3>Плечи</h3>
+      <a href="workout.html#shoulders" class="a">Подробнее</a> <!-- Ссылка на раздел "Плечи" -->
+    </div>
+  </div>
+</div>
+
+<!-- Секция для выбора готовых тренировок -->
+<section class="ready-workouts">
+  <h2>Готовые тренировки</h2>
+  <div class="workout-buttons">
+    <button onclick="showWorkout('chest')">Грудь и трицепсы</button>
+    <button onclick="showWorkout('legs')">Ноги и ягодицы</button>
+    <button onclick="showWorkout('shoulders')">Плечи и корпус</button>
+    <button onclick="showWorkout('abs')">Пресс</button>
+    <button onclick="showWorkout('fullbody')">Все тело</button>
+  </div>
+  <div class="workout-details" id="workoutDetails">
+    <!-- Сюда будут вставляться детали тренировки -->
+  </div>
+</section>
+
+<ul class="workout-list" id="workoutList">
+  <!-- Workouts will be dynamically inserted here -->
+</ul>
+<div class="product-grid" id="productGrid">
+  <!-- Products will be dynamically inserted here -->
+</div>
+<!-- Секция для отзывов -->
+<!-- Секция для отзывов -->
+<section class="reviews">
+  <h2>Отзывы</h2>
+  <div class="reviews-container">
+    <!-- Отзывы будут загружаться динамически из базы данных -->
+  </div>
+  <form id="reviewForm">
+    <h3>Оставьте свой отзыв</h3>
+    <textarea id="reviewText" placeholder="Ваш отзыв..." required></textarea>
+    <button type="submit">Отправить</button>
+  </form>
+</section>
+</body>
+</html>

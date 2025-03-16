@@ -1,0 +1,239 @@
+/* Основные стили для body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Стили для header */
+header {
+    background-color: #016fa1;
+    color: white;
+    padding: 45px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 1px;
+    font-size: 2rem;
+}
+nav {
+    position: absolute; /* Абсолютное позиционирование */
+    left: 50%; /* Сдвигаем навигацию на 50% вправо */
+    transform: translateX(-50%); /* Центрируем навигацию */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px; /* Отступ между элементами навигации */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    background-color: #357ABD;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Стили для main */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #016fa1;
+    border-bottom: 2px solid #016fa1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Стили для details и summary */
+details {
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+summary:hover {
+    background-color: #d0d0d0;
+}
+
+/* Стили для содержимого внутри details */
+details div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+details img {
+    max-width: 150px;
+    border-radius: 5px;
+}
+
+details p {
+    margin: 0;
+    flex: 1;
+}
+
+/* Стили для footer */
+footer {
+    background-color: #016fa1;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Стили для общего блока тренировок и упражнений */
+/* Стили для общего блока тренировок и упражнений */
+.workouts-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#workoutsList, #workoutExercisesSection {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#workoutsList h3, #workoutExercisesSection h3 {
+    margin-top: 0;
+}
+
+.workout-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.workout-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Стиль для выбранной тренировки */
+.workout-item.selected {
+    background-color: #d1e7ff; /* Голубой цвет для выделения */
+    border-color: #007bff; /* Синяя рамка */
+}
+
+.exercise-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+
+#completeWorkoutButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#completeWorkoutButton:hover {
+    background-color: #ff1a1a;
+}
+
+/* Стили для формы добавления тренировки */
+#addWorkoutForm {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#addWorkoutForm input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#addWorkoutForm button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

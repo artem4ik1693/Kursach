@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тренировки</title>
+  <link rel="stylesheet" href="workout.css">
+  <script src="workout.js" defer></script>
+</head>
+<body>
+<header>
+  <h1>Тренировки</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- Общий блок для тренировок и упражнений -->
+  <section id="workoutsSection">
+    <h2>Мои тренировки и упражнения</h2>
+
+    <!-- Кнопка для добавления новой тренировки -->
+    <button id="addWorkoutButton">Добавить тренировку</button>
+    <!-- Форма для добавления тренировки (изначально скрыта) -->
+    <div id="addWorkoutForm" style="display: none;">
+      <input type="text" id="workoutNameInput" placeholder="Название тренировки" required>
+      <input type="date" id="workoutDateInput" required>
+      <button id="saveWorkoutButton">Сохранить</button>
+      <button id="cancelWorkoutButton">Отмена</button>
+    </div>
+
+    <div class="workouts-container">
+      <!-- Список тренировок -->
+      <div id="workoutsList">
+        <h3>Мои тренировки</h3>
+        <!-- Тренировки будут загружены сюда динамически -->
+      </div>
+
+      <!-- Упражнения выбранной тренировки -->
+      <div id="workoutExercisesSection">
+        <h3>Упражнения тренировки</h3>
+        <div style="position: relative;">
+          <button id="completeWorkoutButton" style="position: absolute; top: 0; right: 0; display: none;">Завершить тренировку</button>
+          <div id="workoutExercisesList">
+            <!-- Упражнения будут загружены сюда динамически -->
+          </div>
+        </div>
+      </div>
+
+    <!-- Модальное окно для выбора тренировки -->
+    <div id="workoutModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Выберите тренировку</h2>
+        <div id="modalWorkoutsList">
+          <!-- Тренировки будут загружены сюда динамически -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Секция для упражнений -->
+  <section id="chest">
+    <h2>Упражнения для грудной клетки</h2>
+    <details>
+      <summary>Отжимания от пола</summary>
+      <div>
+        <img src="images/chest-exc-1.jpg" alt="Отжимания">
+        <p>
+          <strong>Задействованные мышцы:</strong> Грудные мышцы, трицепсы, передние дельты, кор.<br>
+          <strong>Пояснение:</strong> Примите упор лежа, опустите тело вниз, сгибая локти, затем вытолкните себя вверх.
+        </p>
+        <button onclick="openWorkoutModal('Отжимания от пола')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Отжимания на брусьях</summary>
+      <div>
+        <img src="images/chest-exc-2.jpg" alt="Отжимания на брусьях">
+        <p>
+          <strong>Задействованные мышцы:</strong> Грудные мышцы (нижняя часть), трицепсы, передние дельты.<br>
+          <strong>Пояснение:</strong> Возьмитесь за брусья, поднимитесь на прямых руках, затем медленно опуститесь, сгибая локти до угла 90 градусов, после чего выжмите себя вверх, возвращаясь в исходное положение.
+        </p>
+        <button onclick="openWorkoutModal('Отжимания на брусьях')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Отжимания с узкой постановкой рук</summary>
+      <div>
+        <img src="images/chest-exc-1.jpg" alt="Отжимания с узкой постановкой рук">
+        <p>
+          <strong>Задействованные мышцы:</strong> Грудные мышцы (внутренняя часть), трицепсы, передние дельты.<br>
+          <strong>Пояснение:</strong> Поставьте руки близко, образуя "ромб", опуститесь вниз и поднимитесь.
+        </p>
+        <button onclick="openWorkoutModal('Отжимания с узкой постановкой рук')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Жим гантелей лежа</summary>
+      <div>
+        <img src="images/chest-exc-1.jpg" alt="Жим гантелей лежа">
+        <p>
+          <strong>Задействованные мышцы:</strong> Грудные мышцы, трицепсы, передние дельты.<br>
+          <strong>Пояснение:</strong> Лягте на спину, выжмите гантели вверх, затем медленно опустите.
+        </p>
+        <button onclick="openWorkoutModal('Жим гантелей лежа')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Разведение рук с гантелями лежа</summary>
+      <div>
+        <img src="images/chest-exc-1.jpg" alt="Разведение рук с гантелями лежа">
+        <p>
+          <strong>Задействованные мышцы:</strong> Грудные мышцы (акцент на растяжение), передние дельты.<br>
+          <strong>Пояснение:</strong> Лягте на спину, разведите руки с гантелями в стороны, затем сведите их над грудью.
+        </p>
+        <button onclick="openWorkoutModal('Разведение рук с гантелями лежа')">Добавить в тренировку</button>
+      </div>
+    </details>
+  </section>
+
+  <!-- Упражнения для ног -->
+  <section id="legs">
+    <h2>Упражнения для ног</h2>
+    <details>
+      <summary>Приседания</summary>
+      <div>
+        <img src="images/leg-exc-1.jpg" alt="Приседания">
+        <p>
+          <strong>Задействованные мышцы:</strong> Укрепление квадрицепсов, ягодиц и задней поверхности бедра.<br>
+          <strong>Пояснение:</strong> Встаньте прямо, ноги на ширине плеч, опуститесь вниз, сгибая колени до параллели бедер с полом, затем вернитесь в исходное положение.
+        </p>
+        <button onclick="openWorkoutModal('Приседания')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Выпады</summary>
+      <div>
+        <img src="images/leg-exc-2.jpg" alt="Выпады">
+        <p>
+          <strong>Задействованные мышцы:</strong> Проработка квадрицепсов, ягодиц и бедер.<br>
+          <strong>Пояснение:</strong> Сделайте шаг вперед, согнув переднюю ногу под углом 90 градусов, заднюю ногу опустите вниз, затем вернитесь в исходное положение.
+        </p>
+        <button onclick="openWorkoutModal('Выпады')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Подъем на носки</summary>
+      <div>
+        <img src="images/leg-exc-2.jpg" alt="Подъем на носки">
+        <p>
+          <strong>Задействованные мышцы:</strong> Укрепление икроножных мышц.<br>
+          <strong>Пояснение:</strong> Встаньте прямо, поднимитесь на носки, задержитесь на 1–2 секунды, затем опуститесь.
+        </p>
+        <button onclick="openWorkoutModal('Подъем на носки')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Болгарские выпады</summary>
+      <div>
+        <img src="images/leg-exc-2.jpg" alt="Болгарские выпады">
+        <p>
+          <strong>Задействованные мышцы:</strong> Интенсивная проработка квадрицепсов и ягодиц.<br>
+          <strong>Пояснение:</strong> Поставьте одну ногу на стул позади себя, опуститесь в выпад, затем вернитесь в исходное положение.
+        </p>
+        <button onclick="openWorkoutModal('Болгарские выпады')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Ягодичный мостик</summary>
+      <div>
+        <img src="images/leg-exc-2.jpg" alt="Ягодичный мостик">
+        <p>
+          <strong>Задействованные мышцы:</strong> Укрепление ягодиц и задней поверхности бедра.<br>
+          <strong>Пояснение:</strong> Лягте на спину, согните ноги, поднимите таз вверх, напрягая ягодицы, затем опуститесь.
+        </p>
+        <button onclick="openWorkoutModal('Ягодичный мостик')">Добавить в тренировку</button>
+      </div>
+    </details>
+  </section>
+
+  <!-- Упражнения для плеч -->
+  <section id="shoulders">
+    <h2>Упражнения для плеч</h2>
+    <details>
+      <summary>Жим гантелей вверх</summary>
+      <div>
+        <img src="images/shoulder-exc-1.jpg" alt="Жим гантелей вверх">
+        <p>
+          <strong>Задействованные мышцы:</strong> Передние и средние дельты, трицепсы.<br>
+          <strong>Пояснение:</strong> Сядьте или встаньте, поднимите гантели до уровня плеч, выжмите их вверх, затем медленно опустите.
+        </p>
+        <button onclick="openWorkoutModal('Жим гантелей вверх')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Махи гантелями в стороны</summary>
+      <div>
+        <img src="images/shoulder-exc-2.jpg" alt="Махи гантелями в стороны">
+        <p>
+          <strong>Задействованные мышцы:</strong> Средние дельты, трапеции.<br>
+          <strong>Пояснение:</strong> Встаньте прямо, поднимите гантели в стороны до уровня плеч, затем медленно опустите.
+        </p>
+        <button onclick="openWorkoutModal('Махи гантелями в стороны')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Махи гантелями перед собой</summary>
+      <div>
+        <img src="images/shoulder-exc-2.jpg" alt="Махи гантелями перед собой">
+        <p>
+          <strong>Задействованные мышцы:</strong> Передние дельты, грудные мышцы.<br>
+          <strong>Пояснение:</strong> Встаньте прямо, поднимите гантели перед собой до уровня плеч, затем медленно опустите.
+        </p>
+        <button onclick="openWorkoutModal('Махи гантелями перед собой')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Планка с подъемом руки</summary>
+      <div>
+        <img src="images/shoulder-exc-2.jpg" alt="Планка с подъемом руки">
+        <p>
+          <strong>Задействованные мышцы:</strong> Передние и средние дельты, кор.<br>
+          <strong>Пояснение:</strong> Примите положение планки, поднимите одну руку вперед, удерживайте 2–3 секунды, затем опустите.
+        </p>
+        <button onclick="openWorkoutModal('Планка с подъемом руки')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Подъем рук с бутылками воды перед собой</summary>
+      <div>
+        <img src="images/shoulder-exc-2.jpg" alt="Подъем рук с бутылками воды перед собой">
+        <p>
+          <strong>Задействованные мышцы:</strong> Передние дельты, грудные мышцы.<br>
+          <strong>Пояснение:</strong> Встаньте прямо, поднимите бутылки с водой перед собой до уровня плеч, затем медленно опустите.
+        </p>
+        <button onclick="openWorkoutModal('Подъем рук с бутылками воды перед собой')">Добавить в тренировку</button>
+      </div>
+    </details>
+  </section>
+
+  <!-- Упражнения для мышц живота -->
+  <section id="abs">
+    <h2>Упражнения для мышц живота</h2>
+    <details>
+      <summary>Скручивания</summary>
+      <div>
+        <img src="images/abs-exc-1.jpg" alt="Скручивания">
+        <p>
+          <strong>Задействованные мышцы:</strong> Прямая мышца живота (верхняя часть).<br>
+          <strong>Пояснение:</strong> Лягте на спину, согните ноги в коленях, поднимите корпус вверх, напрягая пресс, затем медленно опуститесь.
+        </p>
+        <button onclick="openWorkoutModal('Скручивания')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Подъем ног лежа</summary>
+      <div>
+        <img src="images/abs-exc-2.jpg" alt="Подъем ног лежа">
+        <p>
+          <strong>Задействованные мышцы:</strong> Нижняя часть прямой мышцы живота.<br>
+          <strong>Пояснение:</strong> Лягте на спину, поднимите прямые ноги вверх до угла 90 градусов, затем медленно опустите.
+        </p>
+        <button onclick="openWorkoutModal('Подъем ног лежа')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Планка</summary>
+      <div>
+        <img src="images/abs-exc-2.jpg" alt="Планка">
+        <p>
+          <strong>Задействованные мышцы:</strong> Прямая мышца живота, поперечная мышца, кор.<br>
+          <strong>Пояснение:</strong> Примите положение упора лежа на локтях, удерживайте тело прямо, напрягая пресс и кор.
+        </p>
+        <button onclick="openWorkoutModal('Планка')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Горка</summary>
+      <div>
+        <img src="images/abs-exc-2.jpg" alt="Горка">
+        <p>
+          <strong>Задействованные мышцы:</strong> Прямая мышца живота, косые мышцы, кор.<br>
+          <strong>Пояснение:</strong> Примите положение планки, поочередно подтягивайте колени к груди в быстром темпе.
+        </p>
+        <button onclick="openWorkoutModal('Горка')">Добавить в тренировку</button>
+      </div>
+    </details>
+
+    <details>
+      <summary>Подъем корпуса с поворотом</summary>
+      <div>
+        <img src="images/abs-exc-2.jpg" alt="Подъем корпуса с поворотом">
+        <p>
+          <strong>Задействованные мышцы:</strong> Косые мышцы живота, прямая мышца.<br>
+          <strong>Пояснение:</strong> Лягте на спину, согните ноги, поднимите корпус, одновременно поворачиваясь в сторону.
+        </p>
+        <button onclick="openWorkoutModal('Подъем корпуса с поворотом')">Добавить в тренировку</button>
+      </div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2023 Workouts</p>
+</footer>
+</body>
+</html>

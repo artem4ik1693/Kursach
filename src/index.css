@@ -1,0 +1,326 @@
+body {
+    background-color: #b5e3ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #016fa1;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: relative; /* Для позиционирования навигации */
+}
+
+header .contact-info {
+    text-align: center;
+}
+
+.logo {
+    width: 50px; /* Фиксированная ширина для логотипа */
+    height: auto;
+    border-radius: 3px;
+    margin-right: 10px; /* Отступ между логотипом и заголовком */
+}
+
+/* Заголовок рядом с логотипом */
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-right: auto; /* Оставляем заголовок рядом с логотипом */
+}
+
+/* Навигация по центру */
+nav {
+    position: absolute; /* Абсолютное позиционирование */
+    left: 50%; /* Сдвигаем навигацию на 50% вправо */
+    transform: translateX(-50%); /* Центрируем навигацию */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px; /* Отступ между элементами навигации */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    background-color: #357ABD;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.workout-form {
+    background-color: #f0f4f8;
+    border: 1px solid #d1d9e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workout-form h2 {
+    color: #2b6cb0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.workout-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #4a5568;
+    font-weight: bold;
+}
+
+.workout-form input[type="text"],
+.workout-form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.workout-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.workout-form button:hover {
+    background-color: #2c5282;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-item {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin: 0.5rem 0;
+}
+
+.btn {
+    background-color: #2b6cb0;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2c5282;
+}
+.a {
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: #2b6cb0; /* Цвет ссылок */
+    font-weight: bold; /* Жирный шрифт */
+    padding: 8px 12px; /* Отступы внутри ссылки */
+    border-radius: 4px; /* Скругленные углы */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход при наведении */
+}
+
+.a:hover {
+    background-color: #2b6cb0; /* Цвет фона при наведении */
+    color: white; /* Цвет текста при наведении */
+}
+
+.a:active {
+    background-color: #1a4a7a; /* Цвет фона при нажатии */
+    color: white; /* Цвет текста при нажатии */
+}
+
+/* Стили для готовых тренировок */
+.ready-workouts {
+    background-color: #f0f4f8;
+    border: 1px solid #d1d9e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ready-workouts h2 {
+    color: #2b6cb0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.workout-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.workout-buttons button {
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.workout-buttons button:hover {
+    background-color: #2c5282;
+}
+
+.workout-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.workout-details h2 {
+    margin-top: 0;
+}
+
+.workout-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.workout-details li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Стили для отзывов */
+.reviews {
+    background-color: #f0f4f8;
+    border: 1px solid #d1d9e6;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h2 {
+    color: #2b6cb0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.review {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-text {
+    font-size: 1rem;
+    color: #4a5568;
+    margin: 0;
+}
+
+.review-author {
+    font-size: 0.9rem;
+    color: #718096;
+    text-align: right;
+    margin: 10px 0 0;
+}
+
+#reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#reviewForm h3 {
+    color: #2b6cb0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#reviewForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 100px;
+}
+
+#reviewForm input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#reviewForm button {
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#reviewForm button:hover {
+    background-color: #2c5282;
+}

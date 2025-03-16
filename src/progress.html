@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прогресс тренировок</title>
+  <link rel="stylesheet" href="progress.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+  <h1>Прогресс тренировок</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="workout.html">Тренировки</a></li>
+      <li><a href="progress.html">Прогресс</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="form-container">
+    <h2>Добавить прогресс</h2>
+    <form id="progressForm">
+      <div class="form-group">
+        <label for="workoutName">Название тренировки:</label>
+        <input type="text" id="workoutName" placeholder="Введите название" required>
+      </div>
+      <div class="form-group">
+        <label for="exerciseName">Упражнение:</label>
+        <input type="text" id="exerciseName" placeholder="Введите упражнение" required>
+      </div>
+      <div class="form-group">
+        <label for="sets">Подходы:</label>
+        <input type="number" id="sets" placeholder="Количество подходов" required>
+      </div>
+      <div class="form-group">
+        <label for="reps">Повторения:</label>
+        <input type="number" id="reps" placeholder="Количество повторений" required>
+      </div>
+      <div class="form-group">
+        <label for="weight">Вес (кг):</label>
+        <input type="number" id="weight" placeholder="Вес" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Дата:</label>
+        <input type="date" id="date" required>
+      </div>
+      <button type="submit">Добавить</button>
+    </form>
+  </section>
+
+  <section class="progress-container">
+    <h2>Мой прогресс</h2>
+    <canvas id="progressChart"></canvas>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2023 Прогресс тренировок</p>
+</footer>
+
+<script src="progress.js"></script>
+</body>
+</html>
